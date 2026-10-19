@@ -15,7 +15,8 @@ class NationalCodeValidator implements FieldValidator {
   ValidationResult validate(String raw) {
     final String digits = TextNormalizer.digitsOnly(raw);
     if (digits.length < 8 || digits.length > 10) {
-      return const ValidationResult.invalid('National code must have 10 digits.');
+      return const ValidationResult.invalid(
+          'National code must have 10 digits.');
     }
     final String code = digits.padLeft(10, '0');
     return isValid(code)
@@ -59,7 +60,8 @@ class BankCardValidator implements FieldValidator {
           ? ValidationResult.valid(text)
           : const ValidationResult.invalid('Invalid card number checksum.');
     }
-    if (allowMasked && RegExp(r'^[\d*]{16}$').hasMatch(text) &&
+    if (allowMasked &&
+        RegExp(r'^[\d*]{16}$').hasMatch(text) &&
         RegExp(r'^\d{4}').hasMatch(text) &&
         RegExp(r'\d{4}$').hasMatch(text)) {
       return ValidationResult.valid(text);
@@ -90,8 +92,9 @@ class ShebaValidator implements FieldValidator {
 
   @override
   ValidationResult validate(String raw) {
-    final String text =
-        TextNormalizer.normalize(raw).toUpperCase().replaceAll(RegExp(r'[\s\-]'), '');
+    final String text = TextNormalizer.normalize(raw)
+        .toUpperCase()
+        .replaceAll(RegExp(r'[\s\-]'), '');
     final RegExpMatch? m = RegExp(r'^(?:IR)?(\d{24})$').firstMatch(text);
     if (m == null) {
       return const ValidationResult.invalid('Sheba must be IR and 24 digits.');
@@ -106,7 +109,8 @@ class ShebaValidator implements FieldValidator {
   static bool isValid(String sheba) {
     if (!RegExp(r'^IR\d{24}$').hasMatch(sheba)) return false;
     // I = 18, R = 27.
-    final String rearranged = '${sheba.substring(4)}1827${sheba.substring(2, 4)}';
+    final String rearranged =
+        '${sheba.substring(4)}1827${sheba.substring(2, 4)}';
     int rem = 0;
     for (final int c in rearranged.codeUnits) {
       rem = (rem * 10 + (c - 48)) % 97;
@@ -173,8 +177,7 @@ class JalaliDateValidator implements FieldValidator {
           !CalendarConverter.isValidGregorian(year, month, day)) {
         return const ValidationResult.invalid('Not a Jalali date.');
       }
-      return ValidationResult.valid(
-          JalaliDate.fromGregorian(year, month, day));
+      return ValidationResult.valid(JalaliDate.fromGregorian(year, month, day));
     }
     if (year < 1200 || !CalendarConverter.isValidJalali(year, month, day)) {
       return const ValidationResult.invalid('Not a valid Jalali date.');

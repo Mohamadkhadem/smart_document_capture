@@ -58,7 +58,8 @@ void main() {
     expect(v.validate('1404/12/30').isValid, isFalse); // 1404 is not leap
     expect(v.validate('1404/13/01').isValid, isFalse);
     expect(v.validate('2025/03/21').isValid, isFalse);
-    expect(const JalaliDateValidator(acceptGregorian: true)
+    expect(
+        const JalaliDateValidator(acceptGregorian: true)
             .validate('2025/03/21')
             .value,
         JalaliDate(1404, 1, 1));

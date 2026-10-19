@@ -50,7 +50,8 @@ abstract final class ReceiptSchema {
         label: 'ساعت',
         type: FieldType.time,
         locators: <FieldLocator>[
-          KeywordLocator(<String>['ساعت', 'زمان', 'time'], value: ValuePatterns.time),
+          KeywordLocator(<String>['ساعت', 'زمان', 'time'],
+              value: ValuePatterns.time),
           PatternLocator(ValuePatterns.time, score: 0.7),
         ],
         validator: const TimeValidator(),

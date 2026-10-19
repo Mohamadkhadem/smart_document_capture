@@ -62,11 +62,10 @@ class DocumentExtractor {
       }
     }
     for (final _Scored s in scored) {
-      final int agreeing = (s.validation?.isValid ?? true)
-          ? votes[s.value.toString()]! - 1
-          : 0;
-      s.score = confidenceModel.score(s.candidate, s.validation,
-          agreeing: agreeing);
+      final int agreeing =
+          (s.validation?.isValid ?? true) ? votes[s.value.toString()]! - 1 : 0;
+      s.score =
+          confidenceModel.score(s.candidate, s.validation, agreeing: agreeing);
     }
 
     scored.sort((_Scored a, _Scored b) {

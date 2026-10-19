@@ -7,8 +7,8 @@ class BoundingBox {
   const BoundingBox.fromLTRB(this.left, this.top, this.right, this.bottom);
 
   /// Creates a box from its top-left corner and size.
-  const BoundingBox.fromLTWH(double left, double top, double width,
-      double height)
+  const BoundingBox.fromLTWH(
+      double left, double top, double width, double height)
       : this.fromLTRB(left, top, left + width, top + height);
 
   /// Creates a box from JSON produced by [toJson].

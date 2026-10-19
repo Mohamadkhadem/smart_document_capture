@@ -186,8 +186,8 @@ class _DocumentReviewViewState extends State<DocumentReviewView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Expanded(
-                  child: Padding(
-                      padding: const EdgeInsets.all(12), child: image)),
+                  child:
+                      Padding(padding: const EdgeInsets.all(12), child: image)),
               Expanded(child: list),
             ],
           );
@@ -364,7 +364,8 @@ class _FieldTileState extends State<_FieldTile> {
 
     String? error;
     if (!f.isValid && !(f.isMissing && !f.definition.required)) {
-      error = f.isMissing || (f.rawText?.isEmpty ?? true) ? s.required : s.invalid;
+      error =
+          f.isMissing || (f.rawText?.isEmpty ?? true) ? s.required : s.invalid;
     }
 
     return Card(
@@ -397,8 +398,8 @@ class _FieldTileState extends State<_FieldTile> {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                     child: Text(badge,
-                        style: theme.textTheme.labelSmall
-                            ?.copyWith(color: color, fontWeight: FontWeight.w600)),
+                        style: theme.textTheme.labelSmall?.copyWith(
+                            color: color, fontWeight: FontWeight.w600)),
                   ),
                 ),
               ],
@@ -420,7 +421,8 @@ class _FieldTileState extends State<_FieldTile> {
                 errorText: error,
               ),
             ),
-            if (f.alternatives.isNotEmpty && f.source != FieldSource.user) ...<Widget>[
+            if (f.alternatives.isNotEmpty &&
+                f.source != FieldSource.user) ...<Widget>[
               const SizedBox(height: 8),
               Text(s.alternatives, style: theme.textTheme.labelSmall),
               const SizedBox(height: 4),

@@ -18,11 +18,11 @@ abstract final class ValuePatterns {
       r'[\d*xX]{4}[\s\-]?[\d*xX]{2,4}[\s\-]?[\d*xX]{2,4}[\s\-]?[\d*xX]{4}');
 
   /// Iranian IBAN with or without the `IR` prefix and separators.
-  static final RegExp sheba =
-      RegExp(r'(?:IR|ir)?\s?\d{2}(?:[\s\-]?\d){22}');
+  static final RegExp sheba = RegExp(r'(?:IR|ir)?\s?\d{2}(?:[\s\-]?\d){22}');
 
   /// Iranian mobile numbers.
-  static final RegExp mobile = RegExp(r'(?:\+98|0098|0)?9\d{2}[\s\-]?\d{3}[\s\-]?\d{4}');
+  static final RegExp mobile =
+      RegExp(r'(?:\+98|0098|0)?9\d{2}[\s\-]?\d{3}[\s\-]?\d{4}');
 
   /// Ten-digit national codes, optionally with dashes: `001-234567-8`.
   static final RegExp nationalCode = RegExp(r'\b\d{3}-?\d{6}-?\d\b');

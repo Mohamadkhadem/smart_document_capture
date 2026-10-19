@@ -177,8 +177,7 @@ class KeywordLocator implements FieldLocator {
     }
     final RegExpMatch? m = value!.firstMatch(part);
     if (m == null || m.group(0)!.trim().isEmpty) return null;
-    return _candidate(
-        doc, line, start + m.start, start + m.end, score, name);
+    return _candidate(doc, line, start + m.start, start + m.end, score, name);
   }
 }
 

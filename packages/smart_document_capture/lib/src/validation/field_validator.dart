@@ -22,8 +22,9 @@ class ValidationResult {
   final String? message;
 
   @override
-  String toString() =>
-      isValid ? 'ValidationResult.valid($value)' : 'ValidationResult.invalid($message)';
+  String toString() => isValid
+      ? 'ValidationResult.valid($value)'
+      : 'ValidationResult.invalid($message)';
 }
 
 /// Parses and checks the text found for a field.
@@ -164,7 +165,8 @@ class TimeValidator implements FieldValidator {
       return const ValidationResult.invalid('Not a time.');
     }
     String two(int v) => v.toString().padLeft(2, '0');
-    return ValidationResult.valid(
-        s == null ? '${two(h)}:${two(min)}' : '${two(h)}:${two(min)}:${two(s)}');
+    return ValidationResult.valid(s == null
+        ? '${two(h)}:${two(min)}'
+        : '${two(h)}:${two(min)}:${two(s)}');
   }
 }

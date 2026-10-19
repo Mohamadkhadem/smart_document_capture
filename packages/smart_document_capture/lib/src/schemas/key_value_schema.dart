@@ -17,7 +17,10 @@ class KeyValueSchema extends DocumentSchema {
     this.separators = const <String>[':', '：'],
     this.inferTypes = true,
     this.score = 0.85,
-  }) : super(id: 'key_value', name: 'Key / value', fields: const <FieldDefinition>[]);
+  }) : super(
+            id: 'key_value',
+            name: 'Key / value',
+            fields: const <FieldDefinition>[]);
 
   /// Characters that separate a label from its value.
   final List<String> separators;

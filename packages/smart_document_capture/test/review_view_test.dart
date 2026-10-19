@@ -37,7 +37,8 @@ void main() {
     addTearDown(tester.view.reset);
     final DocumentReviewController c = DocumentReviewController(extract());
     ExtractionResult? submitted;
-    await tester.pumpWidget(host(c, onSubmit: (ExtractionResult r) => submitted = r));
+    await tester
+        .pumpWidget(host(c, onSubmit: (ExtractionResult r) => submitted = r));
 
     final Finder total = find.descendant(
         of: find.byKey(const ValueKey<String>('field-total')),

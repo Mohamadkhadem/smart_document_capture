@@ -11,7 +11,8 @@ abstract final class HocrParser {
   static final RegExp _tag = RegExp(r'<(div|p|span)\b([^>]*)>');
   static final RegExp _class = RegExp(r'''class=(['"])([^'"]*)\1''');
   static final RegExp _title = RegExp(r'''title=(['"])(.*?)\1''');
-  static final RegExp _bbox = RegExp(r'bbox\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)');
+  static final RegExp _bbox =
+      RegExp(r'bbox\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)');
   static final RegExp _wconf = RegExp(r'x_wconf\s+(\d+(?:\.\d+)?)');
 
   static const Set<String> _lineClasses = <String>{
@@ -65,9 +66,9 @@ abstract final class HocrParser {
         lineBox = box;
       } else if (cls == 'ocrx_word') {
         final int end = hocr.indexOf('</span>', m.end);
-        final String text =
-            _unescape(_stripTags(hocr.substring(m.end, end < 0 ? hocr.length : end)))
-                .trim();
+        final String text = _unescape(
+                _stripTags(hocr.substring(m.end, end < 0 ? hocr.length : end)))
+            .trim();
         if (text.isEmpty) continue;
         final double conf =
             double.parse(_wconf.firstMatch(title)?[1] ?? '100') / 100;

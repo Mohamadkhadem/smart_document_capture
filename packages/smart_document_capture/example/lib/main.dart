@@ -107,7 +107,8 @@ class _InputPageState extends State<InputPage> {
             decoration: const InputDecoration(border: OutlineInputBorder()),
           ),
           const SizedBox(height: 16),
-          Text('اطمینان شبیه‌سازی‌شده‌ی OCR: ${(_ocrConfidence * 100).round()}٪'),
+          Text(
+              'اطمینان شبیه‌سازی‌شده‌ی OCR: ${(_ocrConfidence * 100).round()}٪'),
           Slider(
             value: _ocrConfidence,
             min: 0.3,

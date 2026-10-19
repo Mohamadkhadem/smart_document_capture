@@ -79,7 +79,8 @@ class ExtractionResult {
         if (!f.isMissing) f,
     ];
     if (found.isEmpty) return 0;
-    return found.fold<double>(0, (double s, ExtractedField f) => s + f.confidence) /
+    return found.fold<double>(
+            0, (double s, ExtractedField f) => s + f.confidence) /
         found.length;
   }
 

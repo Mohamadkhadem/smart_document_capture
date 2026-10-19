@@ -11,8 +11,8 @@ class FakeOcrEngine implements OcrEngine {
 
   /// Returns [text] as a single block, one [OcrLine] per line.
   FakeOcrEngine.text(String text, {double confidence = 0.95})
-      : _resolve = ((_) => OcrResult.fromText(text,
-            confidence: confidence, engine: 'fake'));
+      : _resolve = ((_) =>
+            OcrResult.fromText(text, confidence: confidence, engine: 'fake'));
 
   /// Computes the result for each image.
   FakeOcrEngine.from(OcrResult Function(DocumentImage image) resolve)

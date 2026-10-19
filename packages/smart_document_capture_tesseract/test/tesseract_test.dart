@@ -57,7 +57,8 @@ void main() {
     late String gotLanguage;
     late Map<String, String> gotArgs;
     final TesseractOcrEngine engine = TesseractOcrEngine(
-      recognizer: (String path, String language, Map<String, String> args) async {
+      recognizer:
+          (String path, String language, Map<String, String> args) async {
         gotPath = path;
         gotLanguage = language;
         gotArgs = args;
@@ -86,10 +87,10 @@ void main() {
   test('bytes images and engine errors become OcrException', () async {
     final TesseractOcrEngine engine = TesseractOcrEngine(
         recognizer: (_, __, ___) async => throw StateError('boom'));
-    await expectLater(
-        engine.recognize(DocumentImage.bytes(Uint8List(0))),
+    await expectLater(engine.recognize(DocumentImage.bytes(Uint8List(0))),
         throwsA(isA<OcrException>()));
-    await expectLater(engine.recognize(const DocumentImage.file('x.jpg')),
+    await expectLater(
+        engine.recognize(const DocumentImage.file('x.jpg')),
         throwsA(isA<OcrException>()
             .having((OcrException e) => e.cause, 'cause', isA<StateError>())));
   });

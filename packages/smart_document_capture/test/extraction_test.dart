@@ -20,8 +20,8 @@ const String receipt = '''
 
 void main() {
   group('receipt schema', () {
-    final ExtractionResult result = const DocumentExtractor()
-        .extract(OcrResult.fromText(receipt, confidence: 0.95), ReceiptSchema.persian);
+    final ExtractionResult result = const DocumentExtractor().extract(
+        OcrResult.fromText(receipt, confidence: 0.95), ReceiptSchema.persian);
 
     test('extracts every field', () {
       expect(result['storeName']!.value, 'فروشگاه زنجیره ای افق کوروش');
@@ -65,17 +65,17 @@ void main() {
   });
 
   test('confidence follows OCR confidence', () {
-    ExtractedField total(double c) => const DocumentExtractor()
-        .extract(OcrResult.fromText('جمع کل: ۱۲۰,۰۰۰', confidence: c),
-            ReceiptSchema.persian)['total']!;
+    ExtractedField total(double c) => const DocumentExtractor().extract(
+        OcrResult.fromText('جمع کل: ۱۲۰,۰۰۰', confidence: c),
+        ReceiptSchema.persian)['total']!;
     expect(total(0.98).level(), ConfidenceLevel.high);
     expect(total(0.7).level(), ConfidenceLevel.medium);
     expect(total(0.4).level(), ConfidenceLevel.low);
   });
 
   test('corrections are validated and recorded', () {
-    final ExtractionResult r = const DocumentExtractor().extract(
-        OcrResult.fromText('جمع کل: ۱۲۰,۰۰۰'), ReceiptSchema.persian);
+    final ExtractionResult r = const DocumentExtractor()
+        .extract(OcrResult.fromText('جمع کل: ۱۲۰,۰۰۰'), ReceiptSchema.persian);
     final ExtractionResult fixed =
         r.correct('date', '1404/08/01').correct('total', 'abc');
     expect(fixed['date']!.value, JalaliDate(1404, 8, 1));

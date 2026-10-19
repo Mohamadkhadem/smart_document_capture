@@ -36,7 +36,8 @@ class TesseractOcrEngine implements OcrEngine {
 
   static Future<String> _plugin(
           String imagePath, String language, Map<String, String> args) =>
-      FlutterTesseractOcr.extractHocr(imagePath, language: language, args: args);
+      FlutterTesseractOcr.extractHocr(imagePath,
+          language: language, args: args);
 
   @override
   String get name => 'tesseract';

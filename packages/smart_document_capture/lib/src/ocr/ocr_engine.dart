@@ -75,6 +75,7 @@ class OcrException implements Exception {
   final Object? cause;
 
   @override
-  String toString() =>
-      cause == null ? 'OcrException: $message' : 'OcrException: $message ($cause)';
+  String toString() => cause == null
+      ? 'OcrException: $message'
+      : 'OcrException: $message ($cause)';
 }

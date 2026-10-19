@@ -65,10 +65,15 @@ class DocumentText {
   ({BoundingBox? box, double confidence}) span(
       DocumentLine line, int start, int end) {
     final List<OcrWord> words = line.wordsInRange(start, end);
-    if (words.isEmpty) return (box: line.source.box, confidence: line.source.confidence);
-    final double conf = words.fold<double>(
-            0, (double s, OcrWord w) => s + w.confidence) /
-        words.length;
-    return (box: BoundingBox.unionAll(words.map((OcrWord w) => w.box)), confidence: conf);
+    if (words.isEmpty) {
+      return (box: line.source.box, confidence: line.source.confidence);
+    }
+    final double conf =
+        words.fold<double>(0, (double s, OcrWord w) => s + w.confidence) /
+            words.length;
+    return (
+      box: BoundingBox.unionAll(words.map((OcrWord w) => w.box)),
+      confidence: conf
+    );
   }
 }
