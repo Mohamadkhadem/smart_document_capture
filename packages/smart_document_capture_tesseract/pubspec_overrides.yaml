@@ -1,0 +1,4 @@
+# Local development only: use the core package from this repository.
+dependency_overrides:
+  smart_document_capture:
+    path: ../smart_document_capture

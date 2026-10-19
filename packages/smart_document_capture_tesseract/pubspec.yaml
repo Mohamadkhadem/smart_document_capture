@@ -1,0 +1,30 @@
+name: smart_document_capture_tesseract
+description: >-
+  Offline Tesseract OCR engine for smart_document_capture, with Persian and
+  English support, word boxes and per-word confidence from hOCR output.
+version: 0.1.0
+repository: https://github.com/Mohamadkhadem/smart_document_capture/tree/main/packages/smart_document_capture_tesseract
+issue_tracker: https://github.com/Mohamadkhadem/smart_document_capture/issues
+
+topics:
+  - ocr
+  - tesseract
+  - text-recognition
+  - persian
+
+environment:
+  sdk: ">=3.6.0 <4.0.0"
+  flutter: ">=3.27.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_tesseract_ocr: ^0.4.31
+  smart_document_capture: ^0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:

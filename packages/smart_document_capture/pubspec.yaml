@@ -1,0 +1,30 @@
+name: smart_document_capture
+description: >-
+  Extract structured data from document, receipt and form images with
+  per-field confidence, manual review and pluggable OCR engines.
+version: 0.1.0
+repository: https://github.com/Mohamadkhadem/smart_document_capture/tree/main/packages/smart_document_capture
+issue_tracker: https://github.com/Mohamadkhadem/smart_document_capture/issues
+
+topics:
+  - ocr
+  - document
+  - receipt
+  - text-recognition
+  - persian
+
+environment:
+  sdk: ">=3.6.0 <4.0.0"
+  flutter: ">=3.27.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  persian_calendar_kit: ^0.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
