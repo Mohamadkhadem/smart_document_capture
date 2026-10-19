@@ -163,6 +163,9 @@ void main() {
     expect(r['موبایل']!.definition.type, FieldType.phone);
     expect(r['شبا']!.definition.type, FieldType.sheba);
     expect(r['مبلغ']!.value, 2500000);
+    // Validated values are trusted, plain text needs a glance.
+    expect(r['کد_ملی']!.level(), ConfidenceLevel.high);
+    expect(r['نام']!.confidence, lessThan(r['کد_ملی']!.confidence));
   });
 
   test('pipeline with FakeOcrEngine', () async {

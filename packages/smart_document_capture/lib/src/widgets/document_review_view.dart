@@ -360,7 +360,7 @@ class _FieldTileState extends State<_FieldTile> {
         ? s.corrected
         : f.isMissing
             ? s.missing
-            : '${s.confidence} ${(f.confidence * 100).round()}٪';
+            : '${s.confidence} ${s.percent(f.confidence)}';
 
     String? error;
     if (!f.isValid && !(f.isMissing && !f.definition.required)) {

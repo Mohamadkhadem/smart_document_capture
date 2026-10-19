@@ -1,3 +1,6 @@
+import 'package:persian_calendar_kit/persian_calendar_kit.dart'
+    show PersianDigits;
+
 /// Texts used by `DocumentReviewView`.
 class ReviewStrings {
   /// Creates a set of texts.
@@ -9,6 +12,7 @@ class ReviewStrings {
     required this.alternatives,
     required this.submit,
     required this.corrected,
+    this.persianDigits = false,
   });
 
   /// Persian texts (default).
@@ -20,6 +24,7 @@ class ReviewStrings {
     alternatives: 'گزینه‌های دیگر',
     submit: 'تأیید',
     corrected: 'اصلاح شده',
+    persianDigits: true,
   );
 
   /// English texts.
@@ -53,4 +58,14 @@ class ReviewStrings {
 
   /// Shown instead of the confidence for fields edited by the user.
   final String corrected;
+
+  /// Whether numbers in the view (such as confidence percentages) use
+  /// Persian digits.
+  final bool persianDigits;
+
+  /// Formats a confidence between 0 and 1 as a percentage.
+  String percent(double confidence) {
+    final String n = (confidence * 100).round().toString();
+    return persianDigits ? '${PersianDigits.toPersian(n)}٪' : '$n%';
+  }
 }

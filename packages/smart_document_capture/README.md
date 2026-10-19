@@ -17,6 +17,10 @@ with a **confidence score for every field**, a **manual review widget** and a
   validators for national code, bank card (Luhn), Sheba, mobile numbers and
   Jalali dates (via [`persian_calendar_kit`](https://pub.dev/packages/persian_calendar_kit)).
 
+| Confidence boxes | Correction | Key/value form |
+|---|---|---|
+| ![review](https://raw.githubusercontent.com/Mohamadkhadem/smart_document_capture/main/packages/smart_document_capture/screenshots/2-review-boxes.jpg) | ![corrected](https://raw.githubusercontent.com/Mohamadkhadem/smart_document_capture/main/packages/smart_document_capture/screenshots/4-corrected.jpg) | ![form](https://raw.githubusercontent.com/Mohamadkhadem/smart_document_capture/main/packages/smart_document_capture/screenshots/6-form.jpg) |
+
 ## Installation
 
 ```yaml

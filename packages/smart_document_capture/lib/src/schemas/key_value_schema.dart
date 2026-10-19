@@ -16,7 +16,7 @@ class KeyValueSchema extends DocumentSchema {
   const KeyValueSchema({
     this.separators = const <String>[':', '：'],
     this.inferTypes = true,
-    this.score = 0.85,
+    this.score = 0.95,
   }) : super(
             id: 'key_value',
             name: 'Key / value',

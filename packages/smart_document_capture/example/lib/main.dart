@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:persian_calendar_kit/persian_calendar_kit.dart'
+    show PersianDigits;
 import 'package:smart_document_capture/smart_document_capture.dart';
 
 void main() => runApp(const DemoApp());
@@ -53,10 +55,14 @@ class InputPage extends StatefulWidget {
   State<InputPage> createState() => _InputPageState();
 }
 
+enum _Mode { photo, receiptText, form }
+
 class _InputPageState extends State<InputPage> {
   final TextEditingController _text = TextEditingController(text: _receipt);
-  bool _receiptSchema = true;
+  _Mode _mode = _Mode.photo;
   double _ocrConfidence = 0.95;
+
+  static const AssetImage _photo = AssetImage('assets/receipt.jpg');
 
   @override
   void dispose() {
@@ -65,17 +71,28 @@ class _InputPageState extends State<InputPage> {
   }
 
   Future<void> _extract() async {
-    // A real app would use an engine such as TesseractOcrEngine and a photo.
-    final DocumentCapture capture = DocumentCapture(
-      engine: FakeOcrEngine.text(_text.text, confidence: _ocrConfidence),
-    );
+    // A real app would use an engine such as TesseractOcrEngine on a photo.
+    // Here the photo mode replays a recorded OCR result with word boxes.
+    final OcrEngine engine;
+    if (_mode == _Mode.photo) {
+      final String json = await DefaultAssetBundle.of(context)
+          .loadString('assets/receipt_ocr.json');
+      engine = FakeOcrEngine(
+          OcrResult.fromJson(jsonDecode(json) as Map<String, dynamic>));
+    } else {
+      engine = FakeOcrEngine.text(_text.text, confidence: _ocrConfidence);
+    }
+    final DocumentCapture capture = DocumentCapture(engine: engine);
     final ExtractionResult result = await capture.process(
-      const DocumentImage.file('demo.jpg'),
-      _receiptSchema ? ReceiptSchema.persian : const KeyValueSchema(),
+      const DocumentImage.file('receipt.jpg'),
+      _mode == _Mode.form ? const KeyValueSchema() : ReceiptSchema.persian,
     );
     if (!mounted) return;
     await Navigator.of(context).push(MaterialPageRoute<void>(
-      builder: (_) => ReviewPage(result: result),
+      builder: (_) => ReviewPage(
+        result: result,
+        image: _mode == _Mode.photo ? _photo : null,
+      ),
     ));
   }
 
@@ -86,37 +103,53 @@ class _InputPageState extends State<InputPage> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: <Widget>[
-          SegmentedButton<bool>(
-            segments: const <ButtonSegment<bool>>[
-              ButtonSegment<bool>(value: true, label: Text('رسید خرید')),
-              ButtonSegment<bool>(value: false, label: Text('فرم کلید/مقدار')),
+          SegmentedButton<_Mode>(
+            segments: const <ButtonSegment<_Mode>>[
+              ButtonSegment<_Mode>(value: _Mode.photo, label: Text('عکس رسید')),
+              ButtonSegment<_Mode>(
+                  value: _Mode.receiptText, label: Text('متن رسید')),
+              ButtonSegment<_Mode>(value: _Mode.form, label: Text('فرم')),
             ],
-            selected: <bool>{_receiptSchema},
-            onSelectionChanged: (Set<bool> s) => setState(() {
-              _receiptSchema = s.first;
-              _text.text = _receiptSchema ? _receipt : _form;
+            selected: <_Mode>{_mode},
+            onSelectionChanged: (Set<_Mode> s) => setState(() {
+              _mode = s.first;
+              if (_mode != _Mode.photo) {
+                _text.text = _mode == _Mode.form ? _form : _receipt;
+              }
             }),
           ),
           const SizedBox(height: 16),
-          Text('متن خوانده‌شده توسط OCR',
-              style: Theme.of(context).textTheme.titleSmall),
-          const SizedBox(height: 8),
-          TextField(
-            controller: _text,
-            maxLines: 12,
-            decoration: const InputDecoration(border: OutlineInputBorder()),
-          ),
+          if (_mode == _Mode.photo) ...<Widget>[
+            Text('عکس سند', style: Theme.of(context).textTheme.titleSmall),
+            const SizedBox(height: 8),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxHeight: 420),
+                child: const Image(image: _photo, fit: BoxFit.contain),
+              ),
+            ),
+          ] else ...<Widget>[
+            Text('متن خوانده‌شده توسط OCR',
+                style: Theme.of(context).textTheme.titleSmall),
+            const SizedBox(height: 8),
+            TextField(
+              controller: _text,
+              maxLines: 12,
+              decoration: const InputDecoration(border: OutlineInputBorder()),
+            ),
+            const SizedBox(height: 16),
+            Text('اطمینان شبیه‌سازی‌شده‌ی OCR: '
+                '${PersianDigits.toPersian((_ocrConfidence * 100).round())}٪'),
+            Slider(
+              value: _ocrConfidence,
+              min: 0.3,
+              max: 1,
+              divisions: 14,
+              onChanged: (double v) => setState(() => _ocrConfidence = v),
+            ),
+          ],
           const SizedBox(height: 16),
-          Text(
-              'اطمینان شبیه‌سازی‌شده‌ی OCR: ${(_ocrConfidence * 100).round()}٪'),
-          Slider(
-            value: _ocrConfidence,
-            min: 0.3,
-            max: 1,
-            divisions: 14,
-            onChanged: (double v) => setState(() => _ocrConfidence = v),
-          ),
-          const SizedBox(height: 8),
           FilledButton.icon(
             onPressed: _extract,
             icon: const Icon(Icons.document_scanner_outlined),
@@ -131,10 +164,13 @@ class _InputPageState extends State<InputPage> {
 /// Shows the extracted fields for review.
 class ReviewPage extends StatefulWidget {
   /// Creates the page.
-  const ReviewPage({super.key, required this.result});
+  const ReviewPage({super.key, required this.result, this.image});
 
   /// Result to review.
   final ExtractionResult result;
+
+  /// The analyzed photo, when there is one.
+  final ImageProvider? image;
 
   @override
   State<ReviewPage> createState() => _ReviewPageState();
@@ -190,13 +226,17 @@ class _ReviewPageState extends State<ReviewPage> {
                 padding: const EdgeInsets.only(bottom: 8),
                 child: Text(n == 0
                     ? 'همه‌ی فیلدها قابل اطمینان‌اند'
-                    : '$n فیلد نیاز به بررسی دارد'),
+                    : '${PersianDigits.toPersian(n)} فیلد نیاز به بررسی دارد'),
               );
             },
           ),
         ),
       ),
-      body: DocumentReviewView(controller: _controller, onSubmit: _showJson),
+      body: DocumentReviewView(
+        controller: _controller,
+        image: widget.image,
+        onSubmit: _showJson,
+      ),
     );
   }
 }

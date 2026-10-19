@@ -13,6 +13,20 @@ topics:
   - text-recognition
   - persian
 
+screenshots:
+  - description: Review view with colored confidence boxes on a receipt photo.
+    path: screenshots/2-review-boxes.jpg
+  - description: Selecting a field highlights its box on the image.
+    path: screenshots/3-select-field.jpg
+  - description: A corrected field, validated and recorded.
+    path: screenshots/4-corrected.jpg
+  - description: Structured JSON output with confidence and boxes.
+    path: screenshots/5-json.jpg
+  - description: Key/value form with detected types and validation.
+    path: screenshots/6-form.jpg
+  - description: Example app with a sample receipt photo.
+    path: screenshots/1-photo.jpg
+
 environment:
   sdk: ">=3.6.0 <4.0.0"
   flutter: ">=3.27.0"

@@ -11,9 +11,13 @@ dependencies:
     sdk: flutter
   smart_document_capture:
     path: ../
+  persian_calendar_kit: ^0.1.0
 
 dev_dependencies:
   flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/receipt.jpg
+    - assets/receipt_ocr.json

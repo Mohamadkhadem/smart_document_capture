@@ -1,0 +1,513 @@
+{
+ "engine": "tesseract",
+ "imageWidth": 720,
+ "imageHeight": 1200,
+ "blocks": [
+  {
+   "lines": [
+    {
+     "words": [
+      {
+       "text": "فروشگاه",
+       "box": {
+        "left": 458.8,
+        "top": 52,
+        "right": 587.4,
+        "bottom": 110
+       },
+       "confidence": 0.93
+      },
+      {
+       "text": "زنجیره‌ای",
+       "box": {
+        "left": 317.6,
+        "top": 52,
+        "right": 448.8,
+        "bottom": 110
+       },
+       "confidence": 0.74
+      },
+      {
+       "text": "افق",
+       "box": {
+        "left": 253.6,
+        "top": 52,
+        "right": 307.6,
+        "bottom": 110
+       },
+       "confidence": 0.93
+      },
+      {
+       "text": "کوروش",
+       "box": {
+        "left": 132.6,
+        "top": 52,
+        "right": 243.6,
+        "bottom": 110
+       },
+       "confidence": 0.78
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lines": [
+    {
+     "words": [
+      {
+       "text": "شعبه",
+       "box": {
+        "left": 357.8,
+        "top": 120,
+        "right": 415.6,
+        "bottom": 160
+       },
+       "confidence": 0.94
+      },
+      {
+       "text": "ونک",
+       "box": {
+        "left": 304.4,
+        "top": 120,
+        "right": 347.8,
+        "bottom": 160
+       },
+       "confidence": 0.97
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lines": [
+    {
+     "words": [
+      {
+       "text": "تاریخ:",
+       "box": {
+        "left": 604.2,
+        "top": 206,
+        "right": 672,
+        "bottom": 252
+       },
+       "confidence": 0.95
+      },
+      {
+       "text": "۱۴۰۴/۰۷/۲۷",
+       "box": {
+        "left": 450.2,
+        "top": 206,
+        "right": 594.2,
+        "bottom": 252
+       },
+       "confidence": 0.98
+      },
+      {
+       "text": "ساعت:",
+       "box": {
+        "left": 129.4,
+        "top": 206,
+        "right": 212.6,
+        "bottom": 252
+       },
+       "confidence": 0.95
+      },
+      {
+       "text": "۱۴:۳۵",
+       "box": {
+        "left": 48,
+        "top": 206,
+        "right": 119.4,
+        "bottom": 252
+       },
+       "confidence": 0.9
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lines": [
+    {
+     "words": [
+      {
+       "text": "شماره",
+       "box": {
+        "left": 601.4,
+        "top": 266,
+        "right": 672,
+        "bottom": 312
+       },
+       "confidence": 0.96
+      },
+      {
+       "text": "فاکتور:",
+       "box": {
+        "left": 514,
+        "top": 266,
+        "right": 591.4,
+        "bottom": 312
+       },
+       "confidence": 0.93
+      },
+      {
+       "text": "۸۷۴۵۲",
+       "box": {
+        "left": 418,
+        "top": 266,
+        "right": 504,
+        "bottom": 312
+       },
+       "confidence": 0.88
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lines": [
+    {
+     "words": [
+      {
+       "text": "شیر",
+       "box": {
+        "left": 624.8,
+        "top": 364,
+        "right": 672,
+        "bottom": 410
+       },
+       "confidence": 0.97
+      },
+      {
+       "text": "پرچرب",
+       "box": {
+        "left": 539.6,
+        "top": 364,
+        "right": 614.8,
+        "bottom": 410
+       },
+       "confidence": 0.94
+      },
+      {
+       "text": "۱",
+       "box": {
+        "left": 521.0,
+        "top": 364,
+        "right": 529.6,
+        "bottom": 410
+       },
+       "confidence": 0.97
+      },
+      {
+       "text": "لیتری",
+       "box": {
+        "left": 447.8,
+        "top": 364,
+        "right": 511.0,
+        "bottom": 410
+       },
+       "confidence": 0.94
+      },
+      {
+       "text": "۴۵,۰۰۰",
+       "box": {
+        "left": 48,
+        "top": 364,
+        "right": 126.8,
+        "bottom": 410
+       },
+       "confidence": 0.97
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lines": [
+    {
+     "words": [
+      {
+       "text": "نان",
+       "box": {
+        "left": 635.2,
+        "top": 424,
+        "right": 672,
+        "bottom": 470
+       },
+       "confidence": 0.98
+      },
+      {
+       "text": "تست",
+       "box": {
+        "left": 562.8,
+        "top": 424,
+        "right": 625.2,
+        "bottom": 470
+       },
+       "confidence": 0.95
+      },
+      {
+       "text": "۳۸,۰۰۰",
+       "box": {
+        "left": 48,
+        "top": 424,
+        "right": 129.4,
+        "bottom": 470
+       },
+       "confidence": 0.98
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lines": [
+    {
+     "words": [
+      {
+       "text": "جمع",
+       "box": {
+        "left": 616.6,
+        "top": 522,
+        "right": 672,
+        "bottom": 568
+       },
+       "confidence": 0.93
+      },
+      {
+       "text": "اقلام:",
+       "box": {
+        "left": 542,
+        "top": 522,
+        "right": 606.6,
+        "bottom": 568
+       },
+       "confidence": 0.96
+      },
+      {
+       "text": "۸۳,۰۰۰",
+       "box": {
+        "left": 48,
+        "top": 522,
+        "right": 129.4,
+        "bottom": 568
+       },
+       "confidence": 0.93
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lines": [
+    {
+     "words": [
+      {
+       "text": "تخفیف:",
+       "box": {
+        "left": 580.6,
+        "top": 582,
+        "right": 672,
+        "bottom": 628
+       },
+       "confidence": 0.94
+      },
+      {
+       "text": "۵,۰۰۰",
+       "box": {
+        "left": 48,
+        "top": 582,
+        "right": 109.6,
+        "bottom": 628
+       },
+       "confidence": 0.97
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lines": [
+    {
+     "words": [
+      {
+       "text": "مبلغ",
+       "box": {
+        "left": 610.2,
+        "top": 642,
+        "right": 672,
+        "bottom": 694
+       },
+       "confidence": 0.95
+      },
+      {
+       "text": "قابل",
+       "box": {
+        "left": 541.4,
+        "top": 642,
+        "right": 600.2,
+        "bottom": 694
+       },
+       "confidence": 0.98
+      },
+      {
+       "text": "پرداخت:",
+       "box": {
+        "left": 417.6,
+        "top": 642,
+        "right": 531.4,
+        "bottom": 694
+       },
+       "confidence": 0.95
+      },
+      {
+       "text": "۷۸,۰۰۰",
+       "box": {
+        "left": 113.2,
+        "top": 642,
+        "right": 208,
+        "bottom": 694
+       },
+       "confidence": 0.98
+      },
+      {
+       "text": "ریال",
+       "box": {
+        "left": 48,
+        "top": 642,
+        "right": 103.2,
+        "bottom": 694
+       },
+       "confidence": 0.95
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lines": [
+    {
+     "words": [
+      {
+       "text": "شماره",
+       "box": {
+        "left": 601.4,
+        "top": 740,
+        "right": 672,
+        "bottom": 786
+       },
+       "confidence": 0.96
+      },
+      {
+       "text": "کارت:",
+       "box": {
+        "left": 527.8,
+        "top": 740,
+        "right": 591.4,
+        "bottom": 786
+       },
+       "confidence": 0.93
+      },
+      {
+       "text": "۶۰۳۷-۹۹**-****-۷۸۹۳",
+       "box": {
+        "left": 48,
+        "top": 740,
+        "right": 330.6,
+        "bottom": 786
+       },
+       "confidence": 0.83
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lines": [
+    {
+     "words": [
+      {
+       "text": "شماره",
+       "box": {
+        "left": 601.4,
+        "top": 800,
+        "right": 672,
+        "bottom": 846
+       },
+       "confidence": 0.97
+      },
+      {
+       "text": "پیگیری:",
+       "box": {
+        "left": 502,
+        "top": 800,
+        "right": 591.4,
+        "bottom": 846
+       },
+       "confidence": 0.8
+      },
+      {
+       "text": "۱۲۳۴۵۶",
+       "box": {
+        "left": 48,
+        "top": 800,
+        "right": 141.6,
+        "bottom": 846
+       },
+       "confidence": 0.55
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lines": [
+    {
+     "words": [
+      {
+       "text": "از",
+       "box": {
+        "left": 472.6,
+        "top": 888,
+        "right": 487.4,
+        "bottom": 928
+       },
+       "confidence": 0.98
+      },
+      {
+       "text": "خرید",
+       "box": {
+        "left": 413.0,
+        "top": 888,
+        "right": 462.6,
+        "bottom": 928
+       },
+       "confidence": 0.95
+      },
+      {
+       "text": "شما",
+       "box": {
+        "left": 360.8,
+        "top": 888,
+        "right": 403.0,
+        "bottom": 928
+       },
+       "confidence": 0.98
+      },
+      {
+       "text": "سپاسگزاریم",
+       "box": {
+        "left": 232.6,
+        "top": 888,
+        "right": 350.8,
+        "bottom": 928
+       },
+       "confidence": 0.95
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
